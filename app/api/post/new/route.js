@@ -12,13 +12,13 @@ export const POST = async (request) => {
             body,
             title,
             mainImage,
-            category,
+            categories: category,
             comments: comment,
         })
-
         await newPost.save()
         return new Response(JSON.stringify(newPost), { status: 201 })
     } catch (error) {
+         console.error('Error creating new post:', error)
         return new Response("Failed to create a new post", { status: 500 });
     }
 }

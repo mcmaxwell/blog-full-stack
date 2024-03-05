@@ -46,7 +46,7 @@ export const DELETE = async (request, { params }) => {
         await connectToDB()
 
         // Find the Category by name and remove it
-        await Category.findByIdAndRemove(params.name)
+        await Category.findByIdAndRemove(params.id)
 
         return new Response('Category deleted successfully', { status: 200 })
     } catch (error) {
